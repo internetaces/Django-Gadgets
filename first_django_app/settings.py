@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$xydhv^arqb@=b8g_9k_2xk_r91e6s!oxtn9ntyh&v6#&n+dzi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tech_gadgets',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +66,8 @@ ROOT_URLCONF = 'first_django_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'first_django_app/templates', 
+                 BASE_DIR / 'tech_gadgets/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

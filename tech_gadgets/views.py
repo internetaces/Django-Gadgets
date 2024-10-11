@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.http import JsonResponse, HttpResponseNotFound, Http404
+from django.http import JsonResponse, HttpResponseNotFound, Http404, HttpResponse
 from .dummy_data import gadgets
 from django.views import View
 from django.utils.text import slugify
@@ -20,6 +20,9 @@ def single_gadget_int_view(request, gadget_id):
         new_url = reverse("gadget_slug_url", args=[new_slug])
         return redirect(new_url)
     return HttpResponseNotFound('not found')
+
+def start_page_view(request):
+    return render(request, 'tech_gadgets/test.html', {'gadget_list': gadgets})
 
 class GadgetView(View):
     def get(self, request, gadget_slug):
